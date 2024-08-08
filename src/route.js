@@ -4,12 +4,22 @@ import {
   createRoutesFromElements,
   Route,
 } from "react-router-dom";
+import ErrorBoundary from './ErrorBoundary';
 
 // Components
-import Tv3D from "./components/Tv3D";
+import Home from "./pages/Home";
 
 const router = createBrowserRouter(
-  createRoutesFromElements(<Route path="/" element={<Tv3D/>}></Route>)
+  createRoutesFromElements(
+    <Route
+      path="/"
+      element={
+        <ErrorBoundary>
+          <Home />
+        </ErrorBoundary>
+      }
+    ></Route>
+  )
 );
 
 export default router;
